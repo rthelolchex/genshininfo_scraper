@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Config restrict
+config.json
+
+# package-lock for lts version
+package-lock.json
