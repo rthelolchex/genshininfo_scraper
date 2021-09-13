@@ -3,14 +3,16 @@ const daily = require('./lib/daily')
 const { UID, COOKIE_TOKEN, SERVER } = require('./config.json')
 
 async function main() {
-    const ListClaimed = await daily.getClaimedRewards(COOKIE_TOKEN)
-    if (ListClaimed) {
-        let list = ListClaimed.data.list
-        let rewards_list = []
-        for (let rewards of list) {
-            let str = `${rewards.cnt} ${rewards.name}`
-            console.log(str)
-        }
+    const reedemcode = await hoyolab.ClaimReedemCode(COOKIE_TOKEN, UID, SERVER, 'GENSHINGIFT')
+    if (reedemcode) {
+        let str = `
+== REEDEM CODE ==
+
+Result : ${reedemcode.message}
+
+== Powered by ExBot - Project by rthelolchex ==
+        `.trim()
+        console.log(str)
     }
 }
 
