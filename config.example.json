@@ -1,5 +1,7 @@
 {
     "UID": "8179xxxxx",
     "COOKIE_TOKEN": "Get from the internet",
-    "SERVER": "os_asia"
+    "SERVER": "os_asia",
+    "LANGUAGE": "Fill your language, example : en-us",
+    "AUTH_TOKEN": "Get from your gacha log, open file output_log.txt from AppData\\LocalLow\\MiHoYo"
 }
