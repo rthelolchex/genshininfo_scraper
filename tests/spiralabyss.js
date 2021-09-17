@@ -3,7 +3,7 @@ const { UID, COOKIE_TOKEN, SERVER, LANGUAGE, LANGUAGE_REASON, AUTH_TOKEN } = req
 
 
 async function main() {
-    let spiral_abyss = await hoyolab.spiralAbyss(COOKIE_TOKEN, SERVER, UID, '1')
+    let spiral_abyss = await hoyolab.spiralAbyss(COOKIE_TOKEN, SERVER, UID, '2')
     if (spiral_abyss) {
         let data = spiral_abyss.data
         let str = `
