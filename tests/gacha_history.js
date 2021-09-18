@@ -1,9 +1,9 @@
-const hoyolab = require('./lib/hoyolab')
-const daily = require('./lib/daily')
-const transactions = require('./lib/transactions')
-const gacha = require('./lib/gacha')
+const hoyolab = require('../lib/hoyolab')
+const daily = require('../lib/daily')
+const transactions = require('../lib/transactions')
+const gacha = require('../lib/gacha')
 const fs = require('fs')
-const { UID, COOKIE_TOKEN, SERVER, LANGUAGE, LANGUAGE_REASON, AUTH_TOKEN } = require('./config.json')
+const { UID, COOKIE_TOKEN, SERVER, LANGUAGE, LANGUAGE_REASON, AUTH_TOKEN } = require('../config.json')
 
 
 async function main() {
@@ -22,56 +22,65 @@ async function main() {
         }
     }
     let characterEventWishes = data[0];
-    let fiveStarChar = null;
+    let fiveStarChar = [];
+    let fiveStarCharPity = null
     let lastCharacterEventWishes = characterEventWishes[characterEventWishes.length - 1];
     characterEventWishes.forEach(wish => {
             if (wish.rank === '5') {
-                fiveStarChar = wish;
+                let wish_str = `Anda mendapatkan 5-star : ${wish.name} di pity ${wish.pity}`.trim()
+                fiveStarChar.push(wish_str)
+                fiveStarCharPity = wish
             }
         });
-    let currentPityCharacterEvent = (lastCharacterEventWishes === fiveStarChar) ? 0 : lastCharacterEventWishes.pity;
+    let currentPityCharacterEvent = (lastCharacterEventWishes === fiveStarCharPity) ? 0 : lastCharacterEventWishes.pity;
     let weaponEventWishes = data[1];
-    let fiveStarWeapon = null;
+    let fiveStarWeapon = [];
+    let fiveStarWeaponPity = null
     let lastWeaponEventWishes = weaponEventWishes[weaponEventWishes.length - 1];
         weaponEventWishes.forEach(wish => {
             if (wish.rank === '5') {
-                fiveStarWeapon = wish;
+                let wishweapon_str = `Anda mendapatkan 5-star : ${wish.name} di pity ${wish.pity}`.trim()
+                fiveStarWeapon.push(wishweapon_str)
+                fiveStarWeaponPity = wish;
             }
-            else fiveStarWeapon = {
+            else fiveStarWeapon = [{
                 name: "none",
                 pity: "0"
-            }
+            }]
         });
-    let currentPityWeaponEvent = (lastWeaponEventWishes === fiveStarWeapon) ? 0 : lastWeaponEventWishes.pity;
+    let currentPityWeaponEvent = (lastWeaponEventWishes === fiveStarWeaponPity) ? 0 : lastWeaponEventWishes.pity;
 
     let permanentEventWishes = data[2];
-    let fiveStarPermanent = null;
+    let fiveStarPermanent = [];
+    let fiveStarPermanentPity = null
     let lastPermanentEventWishes = permanentEventWishes[permanentEventWishes.length - 1];
     permanentEventWishes.forEach(wish => {
         if (wish.rank === '5') {
-                fiveStarPermanent = wish;
+            let wishpermanent_str = `Anda mendapatkan 5-star : ${wish.name} di pity ${wish.pity}`.trim()
+            fiveStarPermanent.push(wishpermanent_str)
+            fiveStarPermanentPity = wish;
             }
         });
-    let currentPityPermanentEvent = (lastPermanentEventWishes === fiveStarPermanent) ? 0 : lastPermanentEventWishes.pity;
+    let currentPityPermanentEvent = (lastPermanentEventWishes === fiveStarPermanentPity) ? 0 : lastPermanentEventWishes.pity;
 
     console.log("\n");
     console.log("======= GACHA DETAILS =======")
-    console.log("\n");
+    console.log("");
     console.log('======= Event Permohonan Karakter =======');
-    console.log('Anda mendapatkan 5-Star :', fiveStarChar.name, 'di pity', fiveStarChar.pity);
+    console.log(fiveStarChar.join('\n'))
     console.log('Pity saat ini :', currentPityCharacterEvent);
     console.log('=========================================');
-    console.log("\n");
+    console.log("");
     console.log('======= Event Permohonan Senjata ========');
-    console.log('Anda mendapatkan 5-Star :', fiveStarWeapon.name, 'di pity', fiveStarWeapon.pity);
+    console.log(fiveStarWeapon.join('\n'));
     console.log('Pity saat ini :', currentPityWeaponEvent);
     console.log('=========================================');
-    console.log("\n");
+    console.log("");
     console.log('========== Permohonan Standar ===========');
-    console.log('Anda mendapatkan 5-Star :', fiveStarPermanent.name, 'di pity', fiveStarPermanent.pity);
+    console.log(fiveStarPermanent.join('\n'));
     console.log('Pity saat ini :', currentPityPermanentEvent);
     console.log('=========================================');
-    console.log('\n')
+    console.log('')
     console.log('Powered by ExBot - Project by rthelolchex')
 }
 main()
