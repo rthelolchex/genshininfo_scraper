@@ -1,6 +1,6 @@
 {
   "name": "@rthelolchex/genshininfo_scraper",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A Genshin Impact Information on your account",
   "main": "index.js",
   "scripts": {
