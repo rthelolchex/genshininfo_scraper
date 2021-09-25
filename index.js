@@ -2,6 +2,7 @@ const hoyolab = require('./lib/hoyolab')
 const daily = require('./lib/daily')
 const transactions = require('./lib/transactions')
 const gacha = require('./lib/gacha')
+const prettier = require('./lib/prettier')
 
 module.exports = {
     hoyolab,
