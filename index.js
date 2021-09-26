@@ -1,2 +1,4 @@
 // Just load into here, i'm too lazy:)
-require('./lib/functions')
+const functions = require('./lib/functions')
+
+module.exports = functions
