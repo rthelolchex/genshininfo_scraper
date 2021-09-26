@@ -4,7 +4,6 @@ A Genshin Impact Information on your account
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 Use the npm package manager to install this module.
 
 ```bash
