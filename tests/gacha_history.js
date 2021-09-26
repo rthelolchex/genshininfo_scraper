@@ -1,13 +1,9 @@
-const hoyolab = require('../lib/hoyolab')
-const daily = require('../lib/daily')
-const transactions = require('../lib/transactions')
-const gacha = require('../lib/gacha')
-const fs = require('fs')
+const gi = require('../lib/functions')
 const { UID, COOKIE_TOKEN, SERVER, LANGUAGE, LANGUAGE_REASON, AUTH_TOKEN } = require('../config.json')
 
 
 async function main() {
-    const data = await gacha.getData(AUTH_TOKEN)
+    const data = await gi.getWishHistory(AUTH_TOKEN)
     for (let x = 0; x < data.length; x++) {
         const element = data[x];
 
@@ -66,17 +62,17 @@ async function main() {
     console.log("\n");
     console.log("======= GACHA DETAILS =======")
     console.log("");
-    console.log('======= Event Permohonan Karakter =======');
+    console.log('======= Character Event Wish =======');
     console.log(fiveStarChar.join('\n'))
     console.log('Pity saat ini :', currentPityCharacterEvent);
     console.log('=========================================');
     console.log("");
-    console.log('======= Event Permohonan Senjata ========');
+    console.log('======= Weapon Event Wish ========');
     console.log(fiveStarWeapon.join('\n'));
     console.log('Pity saat ini :', currentPityWeaponEvent);
     console.log('=========================================');
     console.log("");
-    console.log('========== Permohonan Standar ===========');
+    console.log('========== Standard Wish ===========');
     console.log(fiveStarPermanent.join('\n'));
     console.log('Pity saat ini :', currentPityPermanentEvent);
     console.log('=========================================');
@@ -84,9 +80,3 @@ async function main() {
     console.log('Powered by ExBot - Project by rthelolchex')
 }
 main()
-
-// Belajar fungsi wkwk biar ga bolak balik mulu:/
-
-// fungsi of kembalinya datanya
-// fungsi in kembalinya angkanya
-// fungsi length kembalinya total keseluruhan

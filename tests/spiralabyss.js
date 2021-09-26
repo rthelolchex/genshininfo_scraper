@@ -1,9 +1,9 @@
-const hoyolab = require('../lib/hoyolab')
+const gi = require('../lib/functions')
 const { UID, COOKIE_TOKEN, SERVER, LANGUAGE, LANGUAGE_REASON, AUTH_TOKEN } = require('../config.json')
 
 
 async function main() {
-    let spiral_abyss = await hoyolab.spiralAbyss(COOKIE_TOKEN, SERVER, UID, '2')
+    let spiral_abyss = await gi.spiralAbyss(COOKIE_TOKEN, UID, 2)
     if (spiral_abyss) {
         let data = spiral_abyss.data
         let str = `

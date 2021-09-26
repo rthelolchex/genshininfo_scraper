@@ -1,9 +1,9 @@
 const config = require('../config.json')
-const hoyolab = require('../lib/hoyolab')
+const gi = require('../lib/functions')
 
-async function ReedemCode(code) {
-    const res = await hoyolab.ClaimReedemCode(config.COOKIE_TOKEN, config.UID, config.SERVER, code)
-    console.log(res)
+async function ReedemCode(cookie, uid, code) {
+    const res = await gi.ClaimReedemCode(cookie, uid, code)
+    console.log(res) // returns result of json
 }
 
-ReedemCode("GENSHINGIFT")
+ReedemCode(config.COOKIE_TOKEN, config.UID, "GENSHINGIFT")
