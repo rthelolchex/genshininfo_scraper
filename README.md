@@ -107,7 +107,7 @@ getWorldExplorations(cookie, uid) // for more easier make a config.json, example
 
 Claim Daily check-in
 ```javascript
-const gi = require('../lib/functions')
+const gi = require('@rthelolchex/genshininfo_scraper')
 const cookie = '' // fill your cookie here
 
 async function ClaimDailyCheckIn(cookie) {
@@ -120,7 +120,7 @@ ClaimDailyCheckIn(cookie) // for more easier make a config.json, example on my r
 
 Claim reedem code
 ```javascript
-const gi = require('../lib/functions')
+const gi = require('@rthelolchex/genshininfo_scraper')
 const cookie = '' // fill your cookie here
 const uid = '' // fill your uid here
 
