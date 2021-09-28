@@ -131,3 +131,19 @@ async function ReedemCode(cookie, uid, code) {
 
 ReedemCode(cookie, uid, "GENSHINGIFT") // for more easier make a config.json, example on my repository
 ```
+## Privacy
+
+Set visibility of your progress on your genshin data.
+
+```javascript
+const gi = require('@rthelolchex/genshininfo_scraper')
+const cookie = '' // fill your cookie here, or create a config json, example on my repository.
+
+async function setVisibility() {
+    let request = true // true if you want visibled, or else make it false for making it's private.
+    const data = await gi.setVisibility(cookie, request)
+    console.log(data) // returns json with message ok
+}
+
+setVisibility()
+```
