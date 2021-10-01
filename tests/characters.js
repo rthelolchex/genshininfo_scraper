@@ -2,7 +2,7 @@ const gi = require('../lib/functions')
 const config = require('../config.json')
 async function getCharacters(cookie, uid) {
     const data = await gi.GetUserProfile(cookie, uid)
-    if (!data) return console.log("Undefined error.")
+    if (data.data === null) return console.log(data.message)
     const chara = await gi.simpleCharacterList(data)
     const stats = await gi.simpleUserStats(data)
     const world = await gi.simpleWorldExplorations(data)
