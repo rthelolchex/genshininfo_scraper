@@ -94,7 +94,7 @@ const cookie = '' // fill your cookie here
 const uid = '' // fill your uid here
 
 async function getSpiralAbyss(cookie, uid, schedule) {
-    const data = await gi.spiralAbyss(cookie, uid, schedule)
+    const data = await gi.spiralAbyss(cookie, uid, schedule) // Schedule 1 for today, Schedule 2 for last week, coming soon for making this automatically
     if (!data) return
     const result = await gi.simpleSpiralAbyss(data)
     console.log(result) // returns Deepest Descent, Battle Foughts, Win total, etc..
