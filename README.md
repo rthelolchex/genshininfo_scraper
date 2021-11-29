@@ -93,8 +93,8 @@ const gi = require('@rthelolchex/genshininfo_scraper')
 const cookie = '' // fill your cookie here
 const uid = '' // fill your uid here
 
-async function getSpiralAbyss(cookie, uid) {
-    const data = await gi.spiralAbyss(cookie, uid)
+async function getSpiralAbyss(cookie, uid, schedule) {
+    const data = await gi.spiralAbyss(cookie, uid, schedule)
     if (!data) return
     const result = await gi.simpleSpiralAbyss(data)
     console.log(result) // returns Deepest Descent, Battle Foughts, Win total, etc..
